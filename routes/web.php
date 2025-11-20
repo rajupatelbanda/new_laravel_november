@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,16 +23,12 @@ Route::get('/contact', function () {
 //     ]);
 // });
 
- Route::get('/products', function (Request $request) {
-$products=\App\Models\Product::all();
-    return view('admin.product.index',compact('products'));
- });
-
-Route::get('/categories', function (Request $request) {
-    $categories=\App\Models\Category::all();
-    return view('admin.category.index',compact('categories'));
+Route::get('/products', function (Request $request) {
+    $products = \App\Models\Product::all();
+    return view('admin.product.index', compact('products'));
 });
 
-
-
-
+Route::get('/categories', function (Request $request) {
+    $categories = \App\Models\Category::all();
+    return view('admin.category.index', compact('categories'));
+});
